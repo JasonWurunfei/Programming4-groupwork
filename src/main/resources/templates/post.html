@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post New Message</title>
+</head>
+<body>
+<form th:action="@{/message/save}" method="post">
+    <fieldset>
+        <legend>Message Information</legend>
+
+        <label for="title">Message Title:</label>
+        <input type="text" name="title" id="title" required>
+
+        <label for="content">Message Content:</label>
+        <input type="text" name="content" id="content" required>
+
+        <label for="sender">Message Sender:</label>
+        <input type="text" name="sender" id="sender" required>
+
+        <label for="URLAddress">Message URLAddress:</label>
+        <input type="text" name="URLAddress" id="URLAddress" required>
+    </fieldset>
+
+    <br>
+    <input type="submit" id="submit" value="Submit">
+</form>
+</body>
+</html>
