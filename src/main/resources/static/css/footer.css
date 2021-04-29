@@ -1,0 +1,43 @@
+footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: black;
+  color: var(--secondary-color);
+  height: minmax(5rem, auto);
+  align-items: center;
+  justify-items: center;
+  grid-template-areas: "author author author";
+}
+
+footer a {
+  color: var(--secondary-color);
+}
+
+.author {
+  grid-area: author;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+footer .logo {
+  grid-area: logo;
+  display: none;
+}
+
+.repo {
+  grid-area: repo;
+  display: none;
+}
+
+@media screen and (min-width: 400px) {
+  footer {
+    grid-template-areas: "author logo repo";
+  }
+  .repo {
+    display: unset;
+  }
+  footer .logo {
+    display: unset;
+  }
+}
