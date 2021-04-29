@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.programming4.messageList.controller;
 
+import com.programming4.messageList.data.Message;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.programming4.messageList.data;
 
 public class Message {
     private String title;
