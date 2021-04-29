@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <title>Title</title>
   </head>
+
   <body>
+    <div th:replace="header :: header" />
     <table>
       <thead>
         <tr>
@@ -14,6 +16,7 @@
           <th>URL Address</th>
         </tr>
       </thead>
+
       <tbody>
         <tr th:each="message : ${messages}">
           <td th:text="${message.title}" />

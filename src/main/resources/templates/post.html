@@ -6,6 +6,7 @@
     <script src="/js/validate.js"></script>
   </head>
   <body>
+    <div th:replace="header :: header" />
     <form th:action="@{/message/save}" method="post"
           name="messageForm" onsubmit="return validateForm()">
       <fieldset>

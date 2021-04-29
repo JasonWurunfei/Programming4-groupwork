@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <header th:fragment="header">
+    <div id="logo"><a th:href="@{/}">logo</a></div>
+    <nav>
+      <ul>
+        <li><a th:href="@{/message/list}">List</a></li>
+        <li><a th:href="@{/message/post}">Post</a></li>
+      </ul>
+    </nav>
+  </header>
+</html>
