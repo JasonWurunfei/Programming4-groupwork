@@ -22,17 +22,12 @@ public class MessageController {
     public void init() {
         for (int i = 0; i < 10; i++) {
             messages.add(new Message(
-                    "Message"+i,
-                    "Message"+i,
+                    "Message" + i,
+                    "Message" + i,
                     "Jason",
                     "localhost:8080"
             ));
         }
-    }
-
-    @RequestMapping(value="/", method= RequestMethod.GET)
-    public String home(){
-        return "index";
     }
 
     @RequestMapping(value="/list", method= RequestMethod.GET)
