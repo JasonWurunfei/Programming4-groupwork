@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
+  </head>
+  <body>
     <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Sender</th>
-                <th>URL Address</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="message : ${messages}">
-                <td th:text="${message.title}"/>
-                <td th:text="${message.content}"/>
-                <td th:text="${message.sender}"/>
-                <td th:text="${message.URLAddress}"/>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Sender</th>
+          <th>URL Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="message : ${messages}">
+          <td th:text="${message.title}" />
+          <td th:text="${message.content}" />
+          <td th:text="${message.sender}" />
+          <td th:text="${message.URLAddress}" />
+        </tr>
+      </tbody>
     </table>
-</body>
+  </body>
 </html>

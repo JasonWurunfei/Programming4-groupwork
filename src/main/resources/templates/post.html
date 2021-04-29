@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Post New Message</title>
-</head>
-<body>
-<form th:action="@{/message/save}" method="post">
-    <fieldset>
+    <script src="/js/validate.js"></script>
+  </head>
+  <body>
+    <form th:action="@{/message/save}" method="post"
+          name="messageForm" onsubmit="return validateForm()">
+      <fieldset>
         <legend>Message Information</legend>
 
         <label for="title">Message Title:</label>
-        <input type="text" name="title" id="title" required>
+        <input type="text" name="title" id="title" />
+        <div class="error" id="titleErr"></div>
 
         <label for="content">Message Content:</label>
-        <input type="text" name="content" id="content" required>
+        <input type="text" name="content" id="content" />
+        <div class="error" id="contentErr"></div>
 
         <label for="sender">Message Sender:</label>
-        <input type="text" name="sender" id="sender" required>
+        <input type="text" name="sender" id="sender" />
+        <div class="error" id="senderErr"></div>
 
         <label for="URLAddress">Message URLAddress:</label>
-        <input type="text" name="URLAddress" id="URLAddress" required>
-    </fieldset>
+        <input type="text" name="URLAddress" id="URLAddress" />
+        <div class="error" id="URLAddressErr"></div>
 
-    <br>
-    <input type="submit" id="submit" value="Submit">
-</form>
-</body>
+      </fieldset>
+
+      <input type="submit" id="submit" value="Submit" />
+    </form>
+  </body>
 </html>
