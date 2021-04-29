@@ -7,30 +7,31 @@
   </head>
   <body>
     <div th:replace="header :: header" />
-    <form th:action="@{/message/save}" method="post"
-          name="messageForm" onsubmit="return validateForm()">
-      <fieldset>
-        <legend>Message Information</legend>
-
-        <label for="title">Message Title:</label>
-        <input type="text" name="title" id="title" />
-        <div class="error" id="titleErr"></div>
-
-        <label for="content">Message Content:</label>
-        <input type="text" name="content" id="content" />
-        <div class="error" id="contentErr"></div>
-
-        <label for="sender">Message Sender:</label>
-        <input type="text" name="sender" id="sender" />
-        <div class="error" id="senderErr"></div>
-
-        <label for="URLAddress">Message URLAddress:</label>
-        <input type="text" name="URLAddress" id="URLAddress" />
-        <div class="error" id="URLAddressErr"></div>
-
-      </fieldset>
-
-      <input type="submit" id="submit" value="Submit" />
-    </form>
+    <main>
+      <form
+        th:action="@{/message/save}"
+        method="post"
+        name="messageForm"
+        onsubmit="return validateForm()"
+      >
+        <fieldset>
+          <legend>Message Information</legend>
+          <label for="title">Message Title:</label>
+          <input type="text" name="title" id="title" />
+          <div class="error" id="titleErr"></div>
+          <label for="content">Message Content:</label>
+          <input type="text" name="content" id="content" />
+          <div class="error" id="contentErr"></div>
+          <label for="sender">Message Sender:</label>
+          <input type="text" name="sender" id="sender" />
+          <div class="error" id="senderErr"></div>
+          <label for="URLAddress">Message URLAddress:</label>
+          <input type="text" name="URLAddress" id="URLAddress" />
+          <div class="error" id="URLAddressErr"></div>
+        </fieldset>
+        <input type="submit" id="submit" value="Submit" />
+      </form>
+    </main>
+    <div th:replace="footer :: footer" />
   </body>
 </html>

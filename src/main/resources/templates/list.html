@@ -7,24 +7,26 @@
 
   <body>
     <div th:replace="header :: header" />
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Content</th>
-          <th>Sender</th>
-          <th>URL Address</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr th:each="message : ${messages}">
-          <td th:text="${message.title}" />
-          <td th:text="${message.content}" />
-          <td th:text="${message.sender}" />
-          <td th:text="${message.URLAddress}" />
-        </tr>
-      </tbody>
-    </table>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Sender</th>
+            <th>URL Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="message : ${messages}">
+            <td th:text="${message.title}" />
+            <td th:text="${message.content}" />
+            <td th:text="${message.sender}" />
+            <td th:text="${message.URLAddress}" />
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <div th:replace="footer :: footer" />
   </body>
 </html>
