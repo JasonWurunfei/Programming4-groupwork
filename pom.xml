@@ -8,11 +8,13 @@
 		<version>2.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+
+	<groupId>com.programming4</groupId>
+	<artifactId>messageList</artifactId>
+	<version>0.1</version>
+	<name>messageList</name>
+	<description>Programming4 group work using Spring Boot</description>
+
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

@@ -1,13 +1,13 @@
-package com.example.demo;
+package com.programming4.messageList;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class MessageListApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(MessageListApplication.class, args);
 	}
 
 }
