@@ -1,6 +1,7 @@
 package com.programming4.messageList.controller;
 
 import com.programming4.messageList.data.Message;
+import com.programming4.messageList.data.ThreadSafeSQLiteDatabase;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.PostConstruct;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -16,17 +18,15 @@ import java.util.Map;
 @RequestMapping("message")
 public class MessageController {
     private List<Message> messages = new ArrayList<>();
+    ThreadSafeSQLiteDatabase db;
 
-    //This method is called automatically by Spring to initialize the data
     @PostConstruct
     public void init() {
-        for (int i = 0; i < 10; i++) {
-            messages.add(new Message(
-                    "Message" + i,
-                    "Message" + i,
-                    "Jason",
-                    "localhost:8080"
-            ));
+        try {
+            this.db = new ThreadSafeSQLiteDatabase("test.db");
+            messages = db.readMessages();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
     }
 
@@ -50,7 +50,9 @@ public class MessageController {
         String sender = allParams.get("sender");
         String URLAddress = allParams.get("URLAddress");
         Message message = new Message(title, content, sender, URLAddress);
+
         messages.add(message);
+        if (this.db != null) this.db.saveMessage(message);
         return "redirect:/message/list";
     }
 }
