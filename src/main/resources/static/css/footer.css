@@ -28,6 +28,10 @@ footer .logo {
   display: none;
 }
 
+.logo img {
+  height: 8vh;
+}
+
 .repo {
   grid-area: repo;
   display: none;

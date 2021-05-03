@@ -1,5 +1,4 @@
 body {
-  background-image: var(--gradient);
   background-size: 200%;
   animation: bg-animation 10s infinite alternate;
 }
@@ -23,7 +22,7 @@ main {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 80%
+  width: 80%;
 }
 
 tbody:before {
@@ -43,12 +42,14 @@ tbody {
   text-align: center;
 }
 
-tbody td, td a {
-  color: rgb(102, 78, 96);
+tbody td,
+td a {
+  color: white;
   font-size: 1.2rem;
 }
 
-th, td {
+th,
+td {
   padding: 1.5vmin 1vmin;
 }
 
@@ -67,16 +68,29 @@ tbody tr {
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 4px 4px 4px rgba(144, 144, 144, 0.2);
   transition: opacity 0.3s ease-out,
-              transform 0.5s cubic-bezier(.18,.89,.32,1.28),
-              background-color 0.2s ease-out;
+    transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+    background-color 0.2s ease-out;
 }
 
 tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.link img {
+  margin-right: 0.5rem;
+  width: 40px;
+}
+
 @media screen and (min-width: 400px) {
-  th, td {
+  th,
+  td {
     padding: 2.3vmin 1vmin;
   }
 
@@ -84,7 +98,8 @@ tbody tr:hover {
     font-size: 2rem;
   }
 
-  tbody td, td a {
+  tbody td,
+  td a {
     font-size: 1.5rem;
   }
 }

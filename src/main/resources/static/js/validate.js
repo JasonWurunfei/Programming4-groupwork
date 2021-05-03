@@ -92,7 +92,7 @@ inputs.forEach((input) => {
   input.addEventListener("blur", () => {
     if (input.value == "") {
       span.classList.remove("up");
-      input.style["border-bottom"] = "3px solid black";
+      input.style["border-bottom"] = "3px solid rgba(180, 180, 180, 1)";
     } else {
       input.style["border-bottom"] = "3px solid white";
     }
