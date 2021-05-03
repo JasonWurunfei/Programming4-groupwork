@@ -9,6 +9,20 @@
 :root {
   --primary-color: black;
   --secondary-color: white;
+  --gradient: linear-gradient(
+    45deg,
+    #845ec2,
+    #d65db1,
+    #ff6f91,
+    #ff9671,
+    #ffc75f,
+    #f9f871
+  );
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
 }
 
 a {

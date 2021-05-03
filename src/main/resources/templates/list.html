@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/base.css"/>
+    <link rel="stylesheet" href="/css/list.css" />
     <title>Message List - View</title>
   </head>
 
@@ -17,7 +18,7 @@
             <th>Title</th>
             <th>Content</th>
             <th>Sender</th>
-            <th>URL Address</th>
+            <th>Link</th>
           </tr>
         </thead>
         <tbody>
@@ -25,10 +26,13 @@
             <td th:text="${message.title}" />
             <td th:text="${message.content}" />
             <td th:text="${message.sender}" />
-            <td th:text="${message.URLAddress}" />
+            <td>
+              <a th:href="${message.URLAddress}">Check</a>
+            </td>
           </tr>
         </tbody>
       </table>
+      <script src="/js/list.js"></script>
     </main>
     <div th:replace="footer :: footer" />
   </body>

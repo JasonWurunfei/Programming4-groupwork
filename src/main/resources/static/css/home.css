@@ -1,0 +1,97 @@
+body {
+  background-image: var(--gradient);
+}
+
+section {
+  padding-top: 10vh;
+  height: 100vh;
+}
+
+#landing {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+}
+
+#hero {
+  width: 80vmin;
+}
+
+.slogan {
+  align-self: start;
+  justify-self: start;
+  width: 60%;
+  margin: 0 3rem;
+  color: white;
+  transition: opacity 0.5s ease-out;
+}
+
+.slogan h1 {
+  font-size: 3rem;
+  position: relative;
+  margin-bottom: 1.7rem;
+}
+
+.slogan p {
+  position: relative;
+}
+
+.slogan h1::after,
+.slogan p::before {
+  content: "";
+  width:65px;
+  height: 4px;
+  background: #ff4d5a;
+  position: absolute;
+}
+
+.slogan h1::after {
+  bottom: -10px;
+  left: 0px;
+}
+
+.slogan p::before {
+  top: -10px;
+  left: 30px;
+}
+
+
+#section-bars {
+  height: 8vh;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 1rem;
+  transition: opacity 0.4s ease-out;
+}
+
+.bar {
+  height: 18px;
+  width: 3px;
+  background-color: white;
+  margin: 0 1.5rem;
+  cursor: pointer;
+  transition: height 0.3s ease-out;
+}
+
+.bar.active {
+  height: 30px;
+}
+
+#arrow {
+  position: absolute;
+  top: -2rem;
+  right: -1.3rem;
+  transform: rotate(90deg);
+  color: white;
+  opacity: 1;
+  transition: all 1s ease-out;
+}
+
+#arrow.gone {
+  opacity: 0;
+  transform: rotate(90deg) translateX(200px);
+}

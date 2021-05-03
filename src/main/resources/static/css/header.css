@@ -1,4 +1,6 @@
 :root {
+  --manu-btn-clr: black;
+  --manu-btn-shadow-clr: rgba(130, 115, 136, 0.6);
   --manu-btn-size: 35px;
   --manu-btn-gap: calc(var(--manu-btn-size)/3);
   --manu-btn-width: calc(var(--manu-btn-size)/7);
@@ -6,14 +8,18 @@
 }
 
 #logo a {
-  color: white;
+  color: black;
   font-size: 2rem;
 }
 
 header {
   width: 100%;
   height: 10vh;
-  background-color: var(--primary-color);
+  position: fixed;
+  top: 0;
+  background: transparent;
+  transition: background 0.3s ease-out;
+  z-index: 100;
 }
 
 nav {
@@ -22,7 +28,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 7vw;
+  padding: 0 10vw;
 }
 
 /* Mobile Navbar CSS Rules */
@@ -46,9 +52,10 @@ nav {
     top: 10vh;
     right: 0px;
     position: absolute;
-    background: rgba(134, 132, 132, 1);
+    background: var(--gradient);
     transform: translateX(100vw);
     transition: transform 0.5s ease-out;
+    z-index: 2;
   }
 
   .nav-links.open {
@@ -90,9 +97,9 @@ nav {
   .menu-btn__burger {
     width: var(--manu-btn-size);
     height: var(--manu-btn-width);
-    background: #fff;
+    background: var(--manu-btn-clr);
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(255,101,47,.2);
+    box-shadow: 0 2px 5px var(--manu-btn-shadow-clr);
     transition: all .5s ease-in-out;
   }
   
@@ -102,9 +109,9 @@ nav {
     position: absolute;
     width: var(--manu-btn-size);
     height: var(--manu-btn-width);
-    background: #fff;
+    background: var(--manu-btn-clr);
     border-radius: var(--manu-btn-width);
-    box-shadow: 0 2px 5px rgba(255,101,47,.2);
+    box-shadow: 0 2px 5px var(--manu-btn-shadow-clr);
     transition: all .5s ease-in-out;
   }
   
@@ -139,7 +146,8 @@ nav {
 
   .nav-link a {
     color: var(--secondary-color);
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
   }
 
   .nav-link {

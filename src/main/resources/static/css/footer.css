@@ -1,12 +1,15 @@
 footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: black;
   color: var(--secondary-color);
-  height: minmax(5rem, auto);
   align-items: center;
   justify-items: center;
   grid-template-areas: "author author author";
+  position: fixed;
+  width: 100vw;
+  padding: 0rem 10vw 1rem 10vw;
+  bottom: 0;
+  left: 0;
 }
 
 footer a {
@@ -34,9 +37,18 @@ footer .logo {
   footer {
     grid-template-areas: "author logo repo";
   }
+
   .repo {
-    display: unset;
+    display: flex;
+    align-items: center;
+    text-decoration: underline;
   }
+
+  .repo img {
+    height: 30px;
+    margin-right: 0.5rem;
+  }
+
   footer .logo {
     display: unset;
   }
