@@ -2,10 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/base.css"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/list.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Cinzel%7cFauna+One"
+    />
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="/img/android-chrome-192.png">
+
     <title>Message List - View</title>
   </head>
 
@@ -26,7 +36,8 @@
             <td th:text="${message.title}" />
             <td th:text="${message.content}" />
             <td th:text="${message.sender}" />
-            <td>
+            <td class="link">
+              <img src="/img/link.svg" alt="link icon"/>
               <a th:href="${message.URLAddress}">Check</a>
             </td>
           </tr>

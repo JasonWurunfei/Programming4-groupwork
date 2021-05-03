@@ -1,13 +1,18 @@
 const section_bars = document.getElementById("section-bars");
 const slogan = document.querySelector(".slogan");
+const desc = document.querySelectorAll(".desc");
 
 menuBtn.addEventListener("click", () => {
   if (is_open) {
     section_bars.style = "opacity: 0";
     slogan.style = "opacity: 0";
+    desc[0].style = "opacity: 0";
+    desc[1].style = "opacity: 0";
   } else {
     section_bars.style = "opacity: 1";
     slogan.style = "opacity: 1";
+    desc[0].style = "opacity: 1";
+    desc[1].style = "opacity: 1";
   }
 })
 
@@ -40,11 +45,9 @@ let arrowObs = new IntersectionObserver((entries, _) => {
   entries.forEach(entry => {
     if(!entry.isIntersecting) {
       arrow.classList.add("gone")
-      console.log(1)
     }
     else {
       arrow.classList.remove("gone")    
-      console.log(2)  
     }
   })
 }, {threshold: 0.9})
@@ -55,4 +58,58 @@ bars.forEach((bar, i) => {
   bar.addEventListener("click", () => {
     main.goto(i)
   })
+})
+
+const hero = document.getElementById("hero")
+const header1 = document.querySelector(".slogan h1")
+const para1 = document.querySelector(".slogan p")
+const headers = document.querySelectorAll(".desc h2")
+const paras = document.querySelectorAll(".desc p")
+const btns = document.querySelectorAll(".btn")
+const imgFrames = document.querySelectorAll(".img-frame");
+
+window.addEventListener("load", () => {
+  hero.classList.add("big")
+  header1.classList.add("enter")
+  para1.classList.add("enter")
+})
+
+let homeObs = new IntersectionObserver((entries, _) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      hero.classList.add("big")
+      header1.classList.add("enter")
+      para1.classList.add("enter")
+    } else {
+      hero.classList.remove("big")
+      header1.classList.remove("enter")
+      para1.classList.remove("enter")
+    }
+  })
+}, {threshold: 0.4})
+
+homeObs.observe(sections[0])
+
+
+let subPages = [].slice.call(sections, 0)
+subPages.shift()
+
+subPages.forEach((page, i) => {
+  let obs = new IntersectionObserver((entries, _) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        imgFrames[i].classList.add("big")
+        headers[i].classList.add("enter")
+        paras[i].classList.add("enter")
+        btns[i].classList.add("enter")
+      } else {
+        imgFrames[i].classList.remove("big")
+        headers[i].classList.remove("enter")
+        paras[i].classList.remove("enter")
+        btns[i].classList.remove("enter")
+      }
+    })
+  }, {threshold: 0.4})
+
+  obs.observe(page)
 })

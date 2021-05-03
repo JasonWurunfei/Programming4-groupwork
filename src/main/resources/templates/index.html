@@ -2,14 +2,94 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/base.css"/>
-    <title>Message List - Home</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Cinzel%7cFauna+One"
+    />
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="/img/android-chrome-192.png">
+
+    <title>MessageList - Home</title>
   </head>
+
   <body>
     <div th:replace="header :: header" />
-    <main></main>
-    <div th:replace="footer :: footer" />
+    <main>
+      <section id="landing">
+        <img
+          class="scale"
+          id="hero"
+          src="/img/hero.svg"
+          alt="hero image"
+        />
+        <div class="slogan">
+          <h1 class="hide">Message Board</h1>
+          <p class="hide">
+            We help users around the world to share messages with each other.
+          </p>
+        </div>
+      </section>
+
+      <section id="create">
+        <div class="grid-item-container">
+          <div class="img-frame scale">
+            <img
+              src="/img/create-img.jpg"
+              alt="Image is from: https://unsplash.com/photos/LGY8CDgekf4"
+            />
+          </div>
+        </div>
+        <div class="grid-item-container">
+          <div class="desc">
+            <h2 class="hide">
+              <strong>Create</strong>
+              A New Message
+            </h2>
+            <p class="hide">Create messages, express your heart.</p>
+          </div>
+          <a th:href="@{/message/post}" class="btn hide">Create</a>
+        </div>
+      </section>
+
+      <section id="view">
+        <div class="grid-item-container">
+          <div class="img-frame scale">
+            <img
+              src="/img/view-img.jpg"
+              alt="Image is from: https://www.pexels.com/photo/photo-of-assorted-letter-board-quote-hanged-on-wall-1742370/"
+            />
+          </div>
+        </div>
+        <div class="grid-item-container">
+          <div class="desc">
+            <h2 class="hide">
+              <strong>View</strong>
+              All Messages
+            </h2>
+            <p class="hide">View everyone's ideas, not alone any more.</p>
+          </div>
+          <a th:href="@{/message/list}" class="btn hide">View</a>
+        </div>
+      </section>
+
+    </main>
+
+    <div id="section-bars">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div id="arrow">SCROLLDOWN &nbsp;&nbsp; &#11166;</div>
+    </div>
+
+    <script src="/js/scroll.js"></script>
+    <script src="/js/home.js"></script>
   </body>
 </html>

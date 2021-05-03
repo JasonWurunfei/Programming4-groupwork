@@ -9,15 +9,13 @@
 :root {
   --primary-color: black;
   --secondary-color: white;
-  --gradient: linear-gradient(
-    45deg,
-    #845ec2,
-    #d65db1,
-    #ff6f91,
-    #ff9671,
-    #ffc75f,
-    #f9f871
-  );
+  --gradient: linear-gradient(45deg, #360033, #0b8793);
+  --btn-primary-clr: #ff4d5a;
+}
+
+body {
+  font-family: "Fauna One", serif;
+  background-image: var(--gradient);
 }
 
 main {
