@@ -47,6 +47,7 @@ Could:
 1. persistence
 2. Separate display page
 3. A nice-looking fallback page when the URL is not valid.
+4. CRUD
 
  
 

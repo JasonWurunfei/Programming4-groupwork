@@ -165,9 +165,12 @@ public class MessageController {
         int id = Integer.parseInt(allParams.get("id"));
         ModelAndView  redirectMv = new ModelAndView("post");
         Message message = null;
+
         for (Message m : this.messages) {
-            if (m.getId() == id) message = m;
-            break;
+            if (m.getId() == id) {
+                message = m;
+                break;
+            }
         }
 
         redirectMv.addObject("message", message);
