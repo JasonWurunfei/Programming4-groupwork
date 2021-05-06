@@ -56,3 +56,14 @@ Non-Functional Requirements:
 1. HTML5 elements should be applied across all your web pages.
 2.  Create and use at least 10 different style rules for your web pages.
 3. Use different kinds of CSS selectors. 
+
+
+
+
+
+## Reference
+
+The UI design is inspired by https://kuon.space/ 
+
+- All the JavaScript and CSS are original
+- No third-party library is used
