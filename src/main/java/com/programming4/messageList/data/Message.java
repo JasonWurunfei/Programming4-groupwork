@@ -17,9 +17,6 @@ public class Message {
     private String sender;
     private String URLAddress;
 
-    /**
-     * Constructors for {@code Message} object.
-     */
     public Message() {}
 
     public Message(String title, String content, String sender, String URLAddress) {
@@ -29,9 +26,6 @@ public class Message {
         this.URLAddress = URLAddress;
     }
 
-    /**
-     * Constructors for Message Object
-     */
     public Message(int id, String title, String content, String sender, String URLAddress) {
         this.id = id;
         this.title = title;
@@ -40,9 +34,6 @@ public class Message {
         this.URLAddress = URLAddress;
     }
 
-    /**
-     * Getters, and Setters for four elements.
-     */
     public void setId(int id) {
         this.id = id;
     }
