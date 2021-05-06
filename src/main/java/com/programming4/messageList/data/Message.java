@@ -1,5 +1,15 @@
 package com.programming4.messageList.data;
 
+/**
+ * Define the {@code Message} Object.
+ *
+ * <p>{@code Message} object contains four {@code String} attributes,
+ * they are title, content, sender, and URLAddress. Besides, this file
+ * also has the constructor, getter, and setter for the {@code Message} object.</p>
+ *
+ * @author Wu Runfei, LiuYing
+ * @since May 1st, 2021
+ */
 public class Message {
     private int id;
     private String title;

@@ -9,6 +9,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+/**
+ * Test the SpringMVC.
+ *
+ * <p>Testing whether it could properly display the correct page.</p>
+ *
+ * @author Wu Runfei, LiuYing
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 class MessageListApplicationTests {
