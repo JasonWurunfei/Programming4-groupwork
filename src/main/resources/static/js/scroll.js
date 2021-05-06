@@ -12,6 +12,7 @@ function Slidable(el, pages) {
       slidable: this
     })
   });
+  window.addEventListener("resize", this.snap())
 }
 
 Slidable.prototype.slide = function(distance) {
@@ -56,6 +57,9 @@ Slidable.prototype.getCurrentPage = function() {
   return this.pages[this.currentIndex]
 }
 
+Slidable.prototype.snap = function() {
+  this.goto(this.currentIndex)
+}
 
 // static methods
 Slidable.scrollDetect = function(
