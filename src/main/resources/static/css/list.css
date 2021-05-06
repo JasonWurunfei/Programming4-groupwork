@@ -1,0 +1,126 @@
+body {
+  background-size: 200%;
+  animation: bg-animation 10s infinite alternate;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+main {
+  padding: 10vh 0vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 95vw;
+  table-layout: fixed;
+}
+
+tbody:before {
+  content: "";
+  display: block;
+  height: 1.5rem;
+  background-color: transparent;
+}
+
+table thead {
+  color: white;
+  border-bottom: solid white 3px;
+}
+
+tbody {
+  text-align: center;
+  text-justify: center;
+}
+
+tbody td,
+td a {
+  color: white;
+  font-size: 1rem;
+}
+
+th,
+td {
+  padding: 1.5vmin 1vmin;
+  word-wrap: break-word;
+}
+
+tr + tr {
+  opacity: 0;
+}
+
+tbody tr {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 4px 4px 4px rgba(144, 144, 144, 0.2);
+  transition: opacity 0.3s ease-out,
+    transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+    background-color 0.2s ease-out;
+}
+
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.link img {
+  margin-right: 0.5rem;
+  width: 20px;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 10vh;
+  left: 0;
+  width: 100%;
+}
+.pages a {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.pages img {
+  height: 3vh;
+}
+
+@media screen and (min-width: 400px) {
+  table {
+    width: 80vw;
+  }
+  th,
+  td {
+    padding: 2.3vmin 1vmin;
+  }
+
+  th {
+    font-size: 2rem;
+  }
+
+  tbody td,
+  td a {
+    font-size: 1.5rem;
+  }
+
+  .link img {
+    width: 40px;
+  }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <header th:fragment="header">
+    <link rel="stylesheet" href="/css/header.css" />
+    <nav>
+      <div id="logo">
+        <a th:href="@{/}">
+          <img src="/img/logo.svg" alt="logo" />
+          <h2>Message List</h2>
+        </a>
+      </div>
+      <div class="menu-btn">
+        <div class="menu-btn__burger"></div>
+      </div>
+      <ul class="nav-links">
+        <li class="nav-link"><a th:href="@{/message/list}">List</a></li>
+        <li class="nav-link"><a th:href="@{/message/post}">Post</a></li>
+      </ul>
+    </nav>
+    <script src="/js/manual.js"></script>
+  </header>
+</html>

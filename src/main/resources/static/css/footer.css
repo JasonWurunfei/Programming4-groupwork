@@ -1,0 +1,59 @@
+footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  color: var(--secondary-color);
+  align-items: center;
+  justify-items: center;
+  grid-template-areas: "author author author";
+  position: fixed;
+  width: 100vw;
+  padding: 0rem 10vw 1rem 10vw;
+  bottom: 0;
+  left: 0;
+}
+
+footer a {
+  color: var(--secondary-color);
+}
+
+.author {
+  grid-area: author;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+footer .logo {
+  grid-area: logo;
+  display: none;
+}
+
+.logo img {
+  height: 8vh;
+}
+
+.repo {
+  grid-area: repo;
+  display: none;
+}
+
+@media screen and (min-width: 400px) {
+  footer {
+    grid-template-areas: "author logo repo";
+  }
+
+  .repo {
+    display: flex;
+    align-items: center;
+    text-decoration: underline;
+  }
+
+  .repo img {
+    height: 30px;
+    margin-right: 0.5rem;
+  }
+
+  footer .logo {
+    display: unset;
+  }
+}
