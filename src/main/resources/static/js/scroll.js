@@ -1,3 +1,12 @@
+/*
+    Authors: Wu Runfei, LiuYing
+    Date: May 3rd, 2021
+    File Name: scroll.js
+
+    This file realizes the functionality which can make the page scrollable.
+*/
+
+// Encapsulate the lib for the page => Slidable
 function Slidable(el, pages) {
   this.el = el
   this.pages = pages
@@ -5,6 +14,7 @@ function Slidable(el, pages) {
 
   this.el.parentElement.style.overflow = "hidden"
 
+  // Monitor the resize operation from the user.
   window.addEventListener("wheel", event => {
     let now = event.timeStamp;
     Slidable.scrollDetect(now, {
@@ -15,6 +25,7 @@ function Slidable(el, pages) {
   window.addEventListener("resize", this.snap())
 }
 
+// Functionality about scrolling the page.
 Slidable.prototype.slide = function(distance) {
   this.el.style.transform = `translateY(${distance}px)`
 }
@@ -27,6 +38,7 @@ Slidable.prototype.getPageHeight = function(index) {
   return -page.offsetTop
 }
 
+// Functionality about going to the page with the corresponding index.
 Slidable.prototype.goto = function(index) {
   this.slide(this.getPageHeight(index))
 }

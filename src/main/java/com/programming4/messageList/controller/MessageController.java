@@ -14,13 +14,37 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * GET the page number, get the page, and mapping the user to different pages.
+ *
+ * <p>{@Controller} is the part of spring MVC.
+ * It realizes the functionalities mentioned below:
+ * 1. Realize the Page-Separation functionality.
+ * 2. Init the {@code message} object.
+ * 3. Show the list view to users.
+ * 4. Show the post view to users.
+ *
+ * @author Wu Runfei, LiuYing
+ * @since May 5th, 2021
+ * </p>
+ */
 @Controller
 @RequestMapping("message")
 public class MessageController {
+    /**
+     * Defining the variables to store the data.
+     * <p>Defining {@code List} object to store the message.
+     * Defining {@code db} object, and defines the max
+     * number of messages for each page.</p>
+     */
     private List<Message> messages = new ArrayList<>();
     private ThreadSafeSQLiteDatabase db;
     private final int MAX_PAGE_SIZE = 5;
 
+    /**
+     * Get the total number of the page.
+     * @return the {@code totalPageNum} to the console.
+     */
     private int getTotalPageNum() {
         int totalPageNum = 1;
         if (this.messages.size() > this.MAX_PAGE_SIZE) {
@@ -29,11 +53,14 @@ public class MessageController {
         return totalPageNum;
     }
 
+    /**
+     * Add the message to the page.
+     * @param pageIndex Number represents the index of the page.
+     * @return the content of the {@code page}.
+     */
     private List<Message> getPage(int pageIndex) {
         List<Message> page = new ArrayList<>();
         if (this.messages.size() == 0) return page;
-
-
 
         int messageStartIndex = (pageIndex-1) * this.MAX_PAGE_SIZE;
         int messageEndIndex = messageStartIndex + 4;
@@ -46,6 +73,11 @@ public class MessageController {
         return page;
     }
 
+    /**
+     * Identifying the {@code page} whether it has the previous or the next page.
+     * @param current Number represents the current page index.
+     * @return the Result whether it has the previous or the next page.
+     */
     private boolean haveNextPage(int current) {
         return current < this.getTotalPageNum();
     }
@@ -54,6 +86,9 @@ public class MessageController {
         return current > 1;
     }
 
+    /**
+     * Init the {@code database}.
+     */
     @PostConstruct
     public void init() {
         try {
@@ -64,6 +99,9 @@ public class MessageController {
         }
     }
 
+    /**
+     * Directing the user to the List Page.
+     */
     @RequestMapping(value="/list", method= RequestMethod.GET)
     public ModelAndView list(@RequestParam(
             value="page",
@@ -88,6 +126,11 @@ public class MessageController {
         return "post";
     }
 
+    /**
+     * Saving the data into the list, and stored it into the database.
+     * @param allParams which is needed to be parsed into four elements.
+     * @return the list page.
+     */
     @RequestMapping(value="/save", method= RequestMethod.POST)
     public String save(@RequestParam Map<String, String> allParams){
         String title = allParams.get("title");

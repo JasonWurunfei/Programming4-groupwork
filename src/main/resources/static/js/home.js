@@ -1,7 +1,21 @@
+/*
+    Authors: Wu Runfei, LiuYing
+    Date: May 2nd, 2021
+    File Name: home.js
+
+    This file contains the logic methods related to the home page.
+*/
+
+// Get the elements which need to be manipulated here.
 const section_bars = document.getElementById("section-bars");
 const slogan = document.querySelector(".slogan");
 const desc = document.querySelectorAll(".desc");
 
+/*
+   Add the event listener to the menu button, and
+   realizes the functionality that hide the page content
+   when the menu button is open.
+*/
 menuBtn.addEventListener("click", () => {
   if (is_open) {
     section_bars.style = "opacity: 0";
@@ -16,6 +30,12 @@ menuBtn.addEventListener("click", () => {
   }
 })
 
+
+/*
+   Get the <main>, and <section> here. Assign main
+   to be a slidable object. Realize the functionality
+   for scrolling the page.
+*/
 let main = document.querySelector("main");
 const sections = document.querySelectorAll("section");
 main = new Slidable(main, sections);
@@ -24,6 +44,10 @@ main.setEaseFunction("cubic-bezier(.86,0,.07,1)");
 main.setSlideDuration(1);
 const bars = document.querySelectorAll(".bar")
 
+/*
+    Realize the functionality that changes the length
+    of the bars when the corresponding page is observed.
+*/
 let obs = new IntersectionObserver((entires, _) => {
   entires.forEach(entry => {
     let index = [].slice.call(sections).indexOf(entry.target)
@@ -39,6 +63,10 @@ sections.forEach(section => {
   obs.observe(section)
 })
 
+/*
+    Realize the functionality that removes the arrow
+    when the current page is not index.html.
+*/
 const arrow = document.getElementById("arrow")
 let arrowObs = new IntersectionObserver((entries, _) => {
   entries.forEach(entry => {
@@ -53,12 +81,14 @@ let arrowObs = new IntersectionObserver((entries, _) => {
 
 arrowObs.observe(sections[0])
 
+//Click the section bar, and goto the corresponding page.
 bars.forEach((bar, i) => {
   bar.addEventListener("click", () => {
     main.goto(i)
   })
 })
 
+// Make the page be more animated. Add some animations to the page.
 const hero = document.getElementById("hero")
 const header1 = document.querySelector(".slogan h1")
 const para1 = document.querySelector(".slogan p")
@@ -89,7 +119,6 @@ let homeObs = new IntersectionObserver((entries, _) => {
 
 homeObs.observe(sections[0])
 
-
 let subPages = [].slice.call(sections, 0)
 subPages.shift()
 
@@ -113,6 +142,7 @@ subPages.forEach((page, i) => {
   obs.observe(page)
 })
 
+// Click the arrow, remove it, and goto the next page.
  const findArrow = document.querySelector("#arrow");
  findArrow.addEventListener("click", () => {
    findArrow.classList.add("gone");

@@ -1,3 +1,11 @@
+/*
+    Authors: Wu Runfei, LiuYing
+    Date: May 2st, 2021
+    File Name: validate.js
+
+    This file contains the logic methods to validate the correctness of input from users.
+*/
+
 // Defining a function to display error message
 function printError(elemId, hintMsg, display) {
   var el = document.getElementById(elemId);
@@ -55,7 +63,7 @@ function validateURLAddress(form) {
     : true;
   if (form.URLAddress.value.length > 2000) {
     isValid = false;
-    printError("URLAddressErr", "URL should be maximum 2000 characters");
+    printError("URLAddressErr", "URL should be maximum 2000 characters", "unset");
   }
   return isValid;
 }

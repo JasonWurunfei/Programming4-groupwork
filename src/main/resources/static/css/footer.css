@@ -1,3 +1,12 @@
+/*
+    Authors: Wu Runfei, LiuYing
+    Date: April 30th, 2021
+    File Name: footer.css
+
+    This file styles the footer part.
+*/
+
+/* general css rules */
 footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -37,6 +46,7 @@ footer .logo {
   display: none;
 }
 
+/* css rules for laptop */
 @media screen and (min-width: 400px) {
   footer {
     grid-template-areas: "author logo repo";

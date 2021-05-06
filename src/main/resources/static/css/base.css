@@ -1,3 +1,12 @@
+/*
+    Authors: Wu Runfei, LiuYing
+    Date: May 1st, 2021
+    File Name: base.css
+*/
+
+/* This file is used to style the basic elements appearing in every page. */
+
+/* CSS reset */
 *,
 *::before,
 *::after {
@@ -6,6 +15,7 @@
   box-sizing: border-box;
 }
 
+/* Define vars which are used in the file */
 :root {
   --primary-color: black;
   --secondary-color: white;
@@ -13,11 +23,13 @@
   --btn-primary-clr: #ff4d5a;
 }
 
+/* Define the font-family, and background of the body */
 body {
   font-family: "Fauna One", serif;
   background-image: var(--gradient);
 }
 
+/* Style the main part */
 main {
   height: 100vh;
   width: 100vw;
