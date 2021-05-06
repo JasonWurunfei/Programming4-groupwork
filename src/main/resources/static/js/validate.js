@@ -1,3 +1,11 @@
+/*
+    Authors: Wu Runfei, LiuYing
+    Date: May 2st, 2021
+    File Name: validate.js
+
+    This file contains the logic methods to validate the correctness of input from users.
+*/
+
 // Defining a function to display error message
 function printError(elemId, hintMsg, display) {
   var el = document.getElementById(elemId);
@@ -50,12 +58,13 @@ function validateSender(form) {
 
 // Defining a function to validate URLAddress
 function validateURLAddress(form) {
+  console.log(form.URLAddress.value.length);
   var isValid = isEmpty(form, "URLAddress", "Please enter an URL address")
     ? false
     : true;
   if (form.URLAddress.value.length > 2000) {
     isValid = false;
-    printError("URLAddressErr", "URL should be maximum 2000 characters");
+    printError("URLAddressErr", "URL should be maximum 2000 characters", "unset");
   }
   return isValid;
 }
@@ -79,9 +88,12 @@ function validateForm() {
 }
 
 var form = document.messageForm;
-var inputs = form.querySelectorAll("input");
-inputs = [].slice.call(inputs, 0);
-inputs = inputs.slice(0, inputs.length - 1);
+var inputs = [
+  form["title"],
+  form["content"],
+  form["sender"],
+  form["URLAddress"],
+];
 
 inputs.forEach((input) => {
   var span = input.nextElementSibling.firstChild;
@@ -94,6 +106,16 @@ inputs.forEach((input) => {
       span.classList.remove("up");
       input.style["border-bottom"] = "3px solid rgba(180, 180, 180, 1)";
     } else {
+      input.style["border-bottom"] = "3px solid white";
+    }
+  });
+});
+
+window.addEventListener("load", () => {
+  inputs.forEach((input) => {
+    if (input.value != "") {
+      var span = input.nextElementSibling.firstChild;
+      span.classList.add("up");
       input.style["border-bottom"] = "3px solid white";
     }
   });

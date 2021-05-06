@@ -1,3 +1,10 @@
+/*
+    Authors: Wu Runfei, LiuYing
+    Date: May 3rd, 2021
+    File Name: list.css
+
+    This file styles the post page.
+*/
 :root {
   --err-clr: #842029;
   --err-bg-clr: #f8d7da;
@@ -7,6 +14,7 @@
   --input-active-clr: white;
 }
 
+/* general css rules for the page in mobile mode */
 body {
   background-size: 200%;
   animation: bg-animation 10s infinite alternate;
@@ -104,8 +112,13 @@ input:focus + label::after {
   border-radius: 0.25rem;
   padding: 0.5rem;
   display: none;
-  position: relative;
-  width: 90%;
+  position: absolute;
+  width: 100%;
+  font-size: 15px;
+}
+
+.error.active {
+  bottom: 0;
 }
 
 .active::after {
@@ -152,6 +165,7 @@ main img {
   display: none;
 }
 
+/* css rules for laptop */
 @media screen and (min-width: 700px) {
   .field {
     height: 145px;
@@ -164,6 +178,8 @@ main img {
     width: 60%;
   }
 }
+
+/* css rules for desktop */
 @media screen and (min-width: 900px) {
   fieldset {
     width: 100%;
@@ -193,6 +209,7 @@ main img {
   }
 }
 
+/* special css rule */
 @media screen and (min-width: 1800px) {
   .error {
     width: 50%;

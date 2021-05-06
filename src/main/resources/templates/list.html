@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+	Author: Wu Runfei, LiuYing
+	File Name: list.html
+	Today's Date: May 2nd, 2021
+ -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
@@ -6,15 +11,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/list.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Cinzel%7cFauna+One"
-    />
+      
 
-    <link rel="shortcut icon" href="/img/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <link rel="icon" sizes="192x192" href="/img/android-chrome-192.png">
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon-32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/apple-touch-icon.png"
+    />
+    <link rel="icon" sizes="192x192" href="/img/android-chrome-192.png" />
 
     <title>Message List - View</title>
   </head>
@@ -29,6 +40,7 @@
             <th>Content</th>
             <th>Sender</th>
             <th>Link</th>
+            <th>Options</th>
           </tr>
         </thead>
         <tbody>
@@ -38,20 +50,55 @@
             <td th:text="${message.sender}" />
             <td>
               <div class="link">
-                <img src="/img/link.svg" alt="link icon"/>
+                <img src="/img/link.svg" alt="link icon" />
                 <a th:href="${message.URLAddress}">Check</a>
+              </div>
+            </td>
+            <td>
+              <div class="options">
+                <form
+                  th:name="|editForm${message.id}|"
+                  method="POST"
+                  th:action="@{/message/edit}"
+                >
+                  <input type="hidden" name="id" th:value="${message.id}" />
+                  <img
+                    src="/img/edit.svg"
+                    alt="edit"
+                    th:onclick="|document['editForm${message.id}'].submit()|"
+                  />
+                </form>
+                <form
+                  th:name="|deleteForm${message.id}|"
+                  method="POST"
+                  th:action="@{/message/delete}"
+                >
+                  <input type="hidden" name="id" th:value="${message.id}" />
+                  <input type="hidden" name="currentPage" th:value="${currentPage}" />
+                  <img
+                    src="/img/delete.svg"
+                    alt="delete"
+                    th:onclick="|document['deleteForm${message.id}'].submit()|"
+                  />
+                </form>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
-      
+
       <div class="pages">
-        <a th:href="@{/message/list(page=${currentPage-1})}" th:if="${havePrev}">
-          <img src="/img/previous.svg" alt="previous">Previous
+        <a
+          th:href="@{/message/list(page=${currentPage-1})}"
+          th:if="${havePrev}"
+        >
+          <img src="/img/previous.svg" alt="previous" />Previous
         </a>
-        <a th:href="@{/message/list(page=${currentPage+1})}" th:if="${haveNext}">
-          Next&nbsp;<img src="/img/next.svg" alt="next">
+        <a
+          th:href="@{/message/list(page=${currentPage+1})}"
+          th:if="${haveNext}"
+        >
+          Next&nbsp;<img src="/img/next.svg" alt="next" />
         </a>
       </div>
 

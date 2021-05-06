@@ -1,3 +1,10 @@
+/*
+    Authors: Wu Runfei, LiuYing
+    Date: May 2nd, 2021
+    File Name: home.css
+
+    This file styles the Home page.
+*/
 :root {
   --speration-bars-clr: #ff4d5a;
   --slide-bar-clr: #ff4671;
@@ -410,8 +417,9 @@ section img {
 
   #arrow {
     top: unset;
-    bottom: 15vh;
-    left: -4vw;
+    bottom: 10vh;
+    left: -12vw;
+    width: 30vw;
   }
 
   .slogan {

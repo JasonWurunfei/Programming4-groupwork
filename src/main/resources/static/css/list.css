@@ -1,3 +1,12 @@
+/*
+    Authors: Wu Runfei, LiuYing
+    Date: May 1st, 2021
+    File Name: list.css
+
+    This file styles the list page.
+*/
+
+/* general css rules for the list page in mobile mode */
 body {
   background-size: 200%;
   animation: bg-animation 10s infinite alternate;
@@ -94,21 +103,41 @@ tbody tr:hover {
   width: 100%;
 }
 .pages a {
-    color: white;
-    display: flex;
-    align-items: center;
+  color: white;
+  display: flex;
+  align-items: center;
 }
 .pages img {
   height: 3vh;
 }
 
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.options img {
+  margin: 0 0.25rem;
+  width: 5vw;
+  cursor: pointer;
+}
+
+/* css rules for laptop */
 @media screen and (min-width: 400px) {
+  th,
+  .options img {
+    width: 4vw;
+  }
+}
+
+/* css rules for desktop */
+@media screen and (min-width: 800px) {
   table {
     width: 80vw;
   }
-  th,
-  td {
-    padding: 2.3vmin 1vmin;
+  .options img {
+    width: 2vw;
   }
 
   th {
