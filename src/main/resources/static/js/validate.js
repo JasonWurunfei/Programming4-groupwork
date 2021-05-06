@@ -50,6 +50,7 @@ function validateSender(form) {
 
 // Defining a function to validate URLAddress
 function validateURLAddress(form) {
+  console.log(form.URLAddress.value.length);
   var isValid = isEmpty(form, "URLAddress", "Please enter an URL address")
     ? false
     : true;
@@ -79,9 +80,12 @@ function validateForm() {
 }
 
 var form = document.messageForm;
-var inputs = form.querySelectorAll("input");
-inputs = [].slice.call(inputs, 0);
-inputs = inputs.slice(0, inputs.length - 1);
+var inputs = [
+  form["title"],
+  form["content"],
+  form["sender"],
+  form["URLAddress"],
+];
 
 inputs.forEach((input) => {
   var span = input.nextElementSibling.firstChild;
@@ -94,6 +98,16 @@ inputs.forEach((input) => {
       span.classList.remove("up");
       input.style["border-bottom"] = "3px solid rgba(180, 180, 180, 1)";
     } else {
+      input.style["border-bottom"] = "3px solid white";
+    }
+  });
+});
+
+window.addEventListener("load", () => {
+  inputs.forEach((input) => {
+    if (input.value != "") {
+      var span = input.nextElementSibling.firstChild;
+      span.classList.add("up");
       input.style["border-bottom"] = "3px solid white";
     }
   });
