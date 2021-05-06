@@ -18,7 +18,41 @@ import java.util.Map;
 @RequestMapping("message")
 public class MessageController {
     private List<Message> messages = new ArrayList<>();
-    ThreadSafeSQLiteDatabase db;
+    private ThreadSafeSQLiteDatabase db;
+    private final int MAX_PAGE_SIZE = 5;
+
+    private int getTotalPageNum() {
+        int totalPageNum = 1;
+        if (this.messages.size() > this.MAX_PAGE_SIZE) {
+            totalPageNum = this.messages.size() / this.MAX_PAGE_SIZE + 1;
+        }
+        return totalPageNum;
+    }
+
+    private List<Message> getPage(int pageIndex) {
+        List<Message> page = new ArrayList<>();
+        if (this.messages.size() == 0) return page;
+
+
+
+        int messageStartIndex = (pageIndex-1) * this.MAX_PAGE_SIZE;
+        int messageEndIndex = messageStartIndex + 4;
+        if (messageEndIndex > this.messages.size() - 1) {
+            messageEndIndex = this.messages.size() - 1;
+        }
+        for (int i = messageStartIndex; i <= messageEndIndex; i++) {
+            page.add(this.messages.get(i));
+        }
+        return page;
+    }
+
+    private boolean haveNextPage(int current) {
+        return current < this.getTotalPageNum();
+    }
+
+    private boolean havePrevPage(int current) {
+        return current > 1;
+    }
 
     @PostConstruct
     public void init() {
@@ -31,10 +65,21 @@ public class MessageController {
     }
 
     @RequestMapping(value="/list", method= RequestMethod.GET)
-    public ModelAndView list() {
+    public ModelAndView list(@RequestParam(
+            value="page",
+            required = false,
+            defaultValue = "1") int page) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("list");
-        mv.getModel().put("messages", messages);
+
+        if (page <= 0) page = 1;
+        int totalPages = this.getTotalPageNum();
+        if (page > totalPages) page = totalPages;
+
+        mv.getModel().put("messages", this.getPage(page));
+        mv.getModel().put("currentPage", page);
+        mv.getModel().put("haveNext", this.haveNextPage(page));
+        mv.getModel().put("havePrev", this.havePrevPage(page));
         return mv;
     }
 

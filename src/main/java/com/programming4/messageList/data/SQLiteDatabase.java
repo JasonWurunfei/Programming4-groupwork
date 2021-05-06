@@ -30,7 +30,7 @@ public class SQLiteDatabase {
 
     private void addDefaultMessages() {
         if (this.readMessages().size() == 0) {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 4; i++) {
                 this.saveMessage(new Message(
                         "Message"+i,
                         "This is message"+i,

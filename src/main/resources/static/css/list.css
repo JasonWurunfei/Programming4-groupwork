@@ -13,16 +13,18 @@ body {
 }
 
 main {
-  padding-top: 10vh;
+  padding: 10vh 0vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 80%;
+  width: 95vw;
+  table-layout: fixed;
 }
 
 tbody:before {
@@ -34,30 +36,24 @@ tbody:before {
 
 table thead {
   color: white;
-  font-size: 20px;
   border-bottom: solid white 3px;
 }
 
 tbody {
   text-align: center;
+  text-justify: center;
 }
 
 tbody td,
 td a {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 th,
 td {
   padding: 1.5vmin 1vmin;
-}
-
-tr:first-child {
-  padding-left: 5vmin;
-}
-tr:last-child {
-  padding-right: 5vmin;
+  word-wrap: break-word;
 }
 
 tr + tr {
@@ -85,10 +81,31 @@ tbody tr:hover {
 
 .link img {
   margin-right: 0.5rem;
-  width: 40px;
+  width: 20px;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 10vh;
+  left: 0;
+  width: 100%;
+}
+.pages a {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.pages img {
+  height: 3vh;
 }
 
 @media screen and (min-width: 400px) {
+  table {
+    width: 80vw;
+  }
   th,
   td {
     padding: 2.3vmin 1vmin;
@@ -101,5 +118,9 @@ tbody tr:hover {
   tbody td,
   td a {
     font-size: 1.5rem;
+  }
+
+  .link img {
+    width: 40px;
   }
 }
