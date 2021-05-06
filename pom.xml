@@ -11,7 +11,7 @@
 
 	<groupId>com.programming4</groupId>
 	<artifactId>messageList</artifactId>
-	<version>0.1</version>
+	<version>0.6</version>
 	<name>messageList</name>
 	<description>Programming4 group work using Spring Boot</description>
 

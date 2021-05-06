@@ -11,6 +11,7 @@ package com.programming4.messageList.data;
  * @since May 1st, 2021
  */
 public class Message {
+    private int id;
     private String title;
     private String content;
     private String sender;
@@ -20,7 +21,19 @@ public class Message {
      * Constructors for {@code Message} object.
      */
     public Message() {}
+
     public Message(String title, String content, String sender, String URLAddress) {
+        this.title = title;
+        this.content = content;
+        this.sender = sender;
+        this.URLAddress = URLAddress;
+    }
+
+    /**
+     * Constructors for Message Object
+     */
+    public Message(int id, String title, String content, String sender, String URLAddress) {
+        this.id = id;
         this.title = title;
         this.content = content;
         this.sender = sender;
@@ -30,6 +43,14 @@ public class Message {
     /**
      * Getters, and Setters for four elements.
      */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public String getTitle() {
         return title;
     }

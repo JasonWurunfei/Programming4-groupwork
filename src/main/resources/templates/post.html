@@ -7,19 +7,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/base.css"/>
-    <link rel="stylesheet" href="/css/post.css"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/post.css" />
     <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Cinzel%7cFauna+One"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Cinzel%7cFauna+One"
     />
 
-    <link rel="shortcut icon" href="/img/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <link rel="icon" sizes="192x192" href="/img/android-chrome-192.png">
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon-32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/apple-touch-icon.png"
+    />
+    <link rel="icon" sizes="192x192" href="/img/android-chrome-192.png" />
 
     <title>Message List - Post</title>
   </head>
@@ -32,37 +41,73 @@
         name="messageForm"
         onsubmit="return validateForm()"
       >
+        <input
+          type="hidden"
+          name="_method"
+          value="PUT"
+          th:if="${message!=null}"
+        />
+        <input
+          type="hidden"
+          name="id"
+          th:if="${message!=null}"
+          th:value="${message.id}"
+        />
+
         <fieldset name="formData">
           <legend>Message Information</legend>
 
           <div class="field">
-            <input type="text" name="title" autocomplete="off" id="title" />
+            <input
+              type="text"
+              name="title"
+              autocomplete="off"
+              id="title"
+              th:value="${message!=null}?${message.title}"
+            />
             <label for="title"><span>Message Title:</span></label>
             <div class="error" id="titleErr"></div>
           </div>
 
           <div class="field">
-            <input type="text" name="content" autocomplete="off" id="content" />
+            <input
+              type="text"
+              name="content"
+              autocomplete="off"
+              id="content"
+              th:value="${message!=null}?${message.content}"
+            />
             <label for="content"><span>Message Content:</span></label>
             <div class="error" id="contentErr"></div>
           </div>
 
           <div class="field">
-            <input type="text" name="sender" autocomplete="off" id="sender" />
+            <input
+              type="text"
+              name="sender"
+              autocomplete="off"
+              id="sender"
+              th:value="${message!=null}?${message.sender}"
+            />
             <label for="sender"><span>Message Sender:</span></label>
             <div class="error" id="senderErr"></div>
           </div>
 
           <div class="field">
-            <input type="text" name="URLAddress" autocomplete="off" id="URLAddress" />
+            <input
+              type="text"
+              name="URLAddress"
+              autocomplete="off"
+              id="URLAddress"
+              th:value="${message!=null}?${message.URLAddress}"
+            />
             <label for="URLAddress"><span>Message URL Address:</span></label>
             <div class="error" id="URLAddressErr"></div>
           </div>
-
         </fieldset>
         <input type="submit" id="submit" value="Submit" />
       </form>
-      <img src="/img/hero.svg" alt="Aside image">
+      <img src="/img/hero.svg" alt="Aside image" />
       <script src="/js/validate.js"></script>
     </main>
 

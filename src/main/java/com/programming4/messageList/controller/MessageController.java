@@ -3,10 +3,12 @@ package com.programming4.messageList.controller;
 import com.programming4.messageList.data.Message;
 import com.programming4.messageList.data.ThreadSafeSQLiteDatabase;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.PostConstruct;
 import java.sql.SQLException;
@@ -122,8 +124,11 @@ public class MessageController {
     }
 
     @RequestMapping(value="/post", method= RequestMethod.GET)
-    public String addForm(){
-        return "post";
+    public ModelAndView addForm(RedirectAttributes attr){
+
+        ModelAndView  mv = new ModelAndView("post");
+        mv.getModel().put("message", attr.getAttribute("message"));
+        return mv;
     }
 
     /**
@@ -137,10 +142,50 @@ public class MessageController {
         String content = allParams.get("content");
         String sender = allParams.get("sender");
         String URLAddress = allParams.get("URLAddress");
-        Message message = new Message(title, content, sender, URLAddress);
 
-        messages.add(message);
-        if (this.db != null) this.db.saveMessage(message);
+        Message message = new Message(title, content, sender, URLAddress);
+        this.db.saveMessage(message);
+        this.messages = db.readMessages();
+
+        return "redirect:/message/list";
+    }
+
+    @RequestMapping(value="/delete", method= RequestMethod.POST)
+    public String delete(@RequestParam Map<String, String> allParams){
+        int id = Integer.parseInt(allParams.get("id"));
+        String currentPage = allParams.get("currentPage");
+
+        this.db.removeMessage(id);
+        this.messages = db.readMessages();
+        return "redirect:/message/list?page="+currentPage;
+    }
+
+    @RequestMapping(value="/edit",method = RequestMethod.POST)
+    public  ModelAndView edit(@RequestParam Map<String, String> allParams){
+        int id = Integer.parseInt(allParams.get("id"));
+        ModelAndView  redirectMv = new ModelAndView("post");
+        Message message = null;
+        for (Message m : this.messages) {
+            if (m.getId() == id) message = m;
+            break;
+        }
+
+        redirectMv.addObject("message", message);
+        return redirectMv;
+    }
+
+    @PutMapping(value="/save")
+    public String editMessage(@RequestParam Map<String, String> allParams){
+        int id = Integer.parseInt(allParams.get("id"));
+        String title = allParams.get("title");
+        String content = allParams.get("content");
+        String sender = allParams.get("sender");
+        String URLAddress = allParams.get("URLAddress");
+
+        Message message = new Message(title, content, sender, URLAddress);
+        this.db.removeMessage(id);
+        this.db.saveMessage(message);
+        this.messages = db.readMessages();
         return "redirect:/message/list";
     }
 }
