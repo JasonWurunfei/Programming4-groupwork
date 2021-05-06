@@ -16,7 +16,6 @@ menuBtn.addEventListener("click", () => {
   }
 })
 
-
 let main = document.querySelector("main");
 const sections = document.querySelectorAll("section");
 main = new Slidable(main, sections);
@@ -113,3 +112,9 @@ subPages.forEach((page, i) => {
 
   obs.observe(page)
 })
+
+ const findArrow = document.querySelector("#arrow");
+ findArrow.addEventListener("click", () => {
+   findArrow.classList.add("gone");
+   main.goto(1);
+ })

@@ -108,12 +108,13 @@ section img {
 
 #arrow {
   position: absolute;
-  top: -2rem;
-  right: -1.3rem;
+  top: -3vh;
+  right: -1.3vw;
   transform: rotate(90deg);
   color: white;
   opacity: 1;
   transition: opacity 1s ease-out, transform 1s ease-out;
+  cursor: pointer;
 }
 
 #arrow.gone {
@@ -323,8 +324,8 @@ section img {
   }
 
   #arrow {
-    top: -4rem;
-    left: 0rem;
+    top: -4vh;
+    left: 0vw;
     right: unset;
     font-size: 1.5rem;
   }
